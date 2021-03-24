@@ -33,20 +33,22 @@ https://link.csdn.net/?target=http%3A%2F%2Fcv.snu.ac.kr%2Fresearch%2FEDSR%2FFlic
 ##for preparedata:
 python3 prepare.py --images-dir ../../DIV2K/DIV2K_train_HR --output-path ./h5file_DIV2K_train_HR_x4_train --scale 4 --eval False
 
-##for train:
 
+##for train:
 python3 train.py --choose_net DRLN_BlancedAttention --train_file ./h5file_mirflickr_train_HR_x3_train --eval_file ./h5file_Set5_x4_test
 
-##for eval all SR size && all networks(you should download checkpoints first);
 
+##for eval all SR size && all networks(you should download checkpoints first);
 python3 eval_allsize_allnet.py
 
-##for eval dingle image:
 
+##for eval dingle image:
 python3 eval_singleimg.py --lr_image_file ./savedimg/Set5/4/EDSR_blanced_attention_2.png --hr_image_file ../classical_SR_datasets/Set5/Set5/butterfly.png
+
 
 ##for infer all size && all networks SR images(the SR images will be saved in the direct ./savedimg/*):
 python3 infer_allsize_allnet.py
+
 
 ##checkpoints
 We provide all network && all size checkpoints to prove that our experiments are convincing.
@@ -54,6 +56,7 @@ you can get them from:https://pan.baidu.com/s/1gy-3jcikT2h-QfRduwoibg
 password: 2ubm
 
 If the password fails or any other questions, please contact me:2463908977@qq.com
+
 
 ##Our Attention mechanism is very tiny and efficient, and  has also been proved to be efficient in semantic segmentation missions,especially for light-weight models.
 class ChannelAttention(nn.Module):
